@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-light text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-light hover:bg-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-danger {
+    @apply bg-danger hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .input-primary {
+    @apply w-full bg-dark-light border border-gray-700 text-white rounded-lg px-4 py-2 focus:outline-none focus:border-accent transition-colors duration-200;
+  }
+  
+  .card-primary {
+    @apply bg-dark-light rounded-lg shadow-lg p-6 border border-gray-800;
+  }
+  
+  .badge-ringan {
+    @apply bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-sedang {
+    @apply bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-berat {
+    @apply bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 hover:bg-accent/10 hover:text-accent;
+  }
+  
+  .sidebar-link-active {
+    @apply bg-accent text-white;
+  }
+}
