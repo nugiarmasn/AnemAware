@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from "../../assets/images/logo-anemaware.png";
+import logo from '../../assets/images/logo-anemaware.png';
 
 const Footer = () => {
   return (

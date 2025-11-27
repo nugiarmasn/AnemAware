@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, Activity, User, Menu, X } from 'lucide-react';
-import logo from "../../assets/images/logo-anemaware.png";
+import { Home, FileText, BookOpen, Video, Users, Mail, Menu, X, Activity } from 'lucide-react';
+import logo from '../../assets/images/logo-anemaware.png';
 
 const Navbar = () => {
   const location = useLocation();
@@ -10,9 +10,12 @@ const Navbar = () => {
 
   const menuItems = [
     { path: '/', icon: Home, label: 'Home' },
+    { path: '/anemia-profile', icon: Activity, label: 'Profil Anemia' },
     { path: '/education', icon: BookOpen, label: 'Edukasi' },
-    { path: '/user-screening', icon: Activity, label: 'Skrining' },
-    { path: '/user-profile', icon: User, label: 'Profil' }
+    { path: '/articles', icon: FileText, label: 'Artikel' },
+    { path: '/videos', icon: Video, label: 'Video Edukasi' },
+    { path: '/about', icon: Users, label: 'Tentang Kami' },
+    { path: '/contact', icon: Mail, label: 'Kontak' }
   ];
 
   return (
@@ -39,7 +42,7 @@ const Navbar = () => {
               <span className="text-2xl font-bold text-accent">AnemAware</span>
             </Link>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-4">
               {menuItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -47,14 +50,14 @@ const Navbar = () => {
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
+                      className={`flex items-center gap-2 px-3 py-2 rounded-full transition-all ${
                         isActive
                           ? 'bg-gradient-to-r from-accent to-accent-light text-white'
                           : 'text-gray-600 hover:text-accent hover:bg-pink-50'
                       }`}
                     >
-                      <item.icon size={20} />
-                      <span className="font-semibold">{item.label}</span>
+                      <item.icon size={16} />
+                      <span className="font-semibold text-sm">{item.label}</span>
                     </motion.div>
                   </Link>
                 );
@@ -64,7 +67,7 @@ const Navbar = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-accent"
+              className="lg:hidden p-2 text-accent"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </motion.button>
@@ -77,7 +80,7 @@ const Navbar = () => {
           initial={{ opacity: 0, x: '100%' }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
-          className="fixed inset-0 bg-white z-40 md:hidden pt-20"
+          className="fixed inset-0 bg-white z-40 lg:hidden pt-20"
         >
           <div className="flex flex-col gap-4 p-6">
             {menuItems.map((item) => {
